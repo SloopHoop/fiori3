@@ -6,6 +6,7 @@
 		xmlns:chart="sap.suite.ui.microchart"
 	controllerName="shockwave.fiori3demo.controller.View1" displayBlock="true">
 	
+	
 	<tnt:ToolPage id="toolPage">
 		 <tnt:header>
 			<f:ShellBar title="Shockwave"
