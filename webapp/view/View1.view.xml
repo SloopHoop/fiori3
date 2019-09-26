@@ -1,0 +1,160 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 
+		xmlns:f="sap.f" 
+		xmlns:card="sap.f.cards"
+		xmlns:core="sap.ui.core"
+		xmlns:tnt="sap.tnt"
+		xmlns:chart="sap.suite.ui.microchart"
+	controllerName="shockwave.fiori3demo.controller.View1" displayBlock="true">
+	
+	<tnt:ToolPage id="toolPage">
+		 <tnt:header>
+			<f:ShellBar title="Shockwave"
+				secondTitle=""
+				showMenuButton="false"
+				showCopilot="false"
+				showNotifications="true"
+				menuButtonPressed="onMenuButtonPress"
+				showProductSwitcher="true"
+				notificationsNumber="0">
+				<f:menu>
+					<Menu>
+						<MenuItem text="XSA" icon="sap-icon://tag-cloud-chart" />
+						<MenuItem text="Charts" icon="sap-icon://bar-chart" />
+					</Menu>
+				</f:menu>
+				<f:profile>
+					<f:Avatar initials="SG"/>
+				</f:profile>
+				<f:searchManager>
+					<f:SearchManager/>
+				</f:searchManager>
+			</f:ShellBar>
+		</tnt:header>
+		 <tnt:mainContents>
+		 	<NavContainer id="pageContainer" initialPage="page2">
+				<pages>
+					<ScrollContainer id="page2" horizontal="false" vertical="true" height="100%">
+						<f:Card
+							class="sapUiMediumMargin"
+							width="300px">
+							<f:header>
+								<card:Header
+									title="Buy bus ticket on-line"
+									subtitle="Buy a single drive ticket for a date"
+									iconSrc="sap-icon://bus-public-transport"/>
+							</f:header>
+							<f:content>
+								<VBox
+									height="115px"
+									class="sapUiSmallMargin"
+									justifyContent="SpaceBetween">
+									<HBox justifyContent="SpaceBetween">
+										<ComboBox
+											width="120px"
+											placeholder="From City"
+											items="{
+												path: '/cities',
+												sorter: { path: 'text' }
+											}">
+											<core:Item key="{key}" text="{text}" />
+										</ComboBox>
+										<ComboBox
+											width="120px"
+											placeholder="To City"
+											items="{
+												path: '/cities',
+												sorter: { path: 'text' }
+											}">
+											<core:Item key="{key}" text="{text}" />
+										</ComboBox>
+									</HBox>
+									<HBox justifyContent="SpaceBetween">
+										<DatePicker width="186px" placeholder="Choose Date ..."/>
+										<Button text="Book" press="onBookPress" type="Emphasized" />
+									</HBox>
+								</VBox>
+							</f:content>
+						</f:Card>
+					   
+						<f:Card
+							class="sapUiMediumMargin"
+							width="300px">
+							<f:header>
+								<card:Header
+									title="SAP Tech Ed 2019"
+									subtitle="App space demos"/>
+							</f:header>
+							<f:content>
+								<List
+									showSeparators="None"
+									items="{path: 'appModel>/demos'}" >
+									<CustomListItem>
+										<HBox
+											 alignItems="Center"
+											justifyContent="SpaceBetween">
+											<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTop" >
+												<Title level="H3" text="{appModel>title}" />
+												<Text text="{appModel>subtitle}"/>
+											</VBox>
+											<ObjectStatus
+												class="sapUiTinyMargin"
+												text="{appModel>score}"
+												state= "{appModel>statusSchema}"/>
+										</HBox>
+									</CustomListItem>
+								</List>
+							</f:content>
+						</f:Card>
+						
+						<f:Card class="sapUiMediumMargin"
+								width="300px">
+								<f:header>
+									<card:Header
+										title="Demos per Cloud"
+										iconSrc="sap-icon://SAP-icons-TNT/private-cloud"/>
+								</f:header>
+								<f:content>
+										<HBox justifyContent="SpaceBetween">
+											<items>
+												<chart:InteractiveBarChart labelWidth="25%" selectionChanged="selectionChanged" press="press">
+													<chart:bars>
+														<chart:InteractiveBarChartBar label="AWS" value="205"/>
+														<chart:InteractiveBarChartBar label="SCP" value="185"/>
+														<chart:InteractiveBarChartBar label="Google" value="150"/>
+													</chart:bars>
+												</chart:InteractiveBarChart>
+											</items>
+										</HBox>
+								</f:content>
+							</f:Card>
+					</ScrollContainer>
+				</pages>
+			</NavContainer>
+		 	
+		 </tnt:mainContents>
+	 </tnt:ToolPage>
+	
+	
+	
+					    
+	
+	<!--
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="Fiori 3 demo">
+					<content>
+					    
+					   
+					    
+					   
+					    
+					    
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+	
+	-->
+</mvc:View>
